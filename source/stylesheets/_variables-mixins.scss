@@ -1,0 +1,106 @@
+$grey-0: #424242;
+$grey-1: #777;
+$grey-2: #c0c4c5;
+$grey-3: #d5d9dc;
+$grey-4: #DBE1E6;
+$grey-5: #5d6e77;
+
+$gblue-0: #2b3a42;
+$gblue-1: #467292;
+$gblue-4: #496B7F;
+$gblue-5: #5A768A;
+$gblue-6: #7796AA;
+$gblue-7: #94ACBA;
+
+$blue-0: #337691;
+$blue-1: #2a8eba;
+$blue-2: #45A8D0;
+
+$dblue-0:#285875;
+
+$sblue-0: #0276E3;
+$sblue-1: #0e9ada;
+
+$yellow-4: #DAA400;
+
+$lt-gblue-5: #CCD4D9;
+$lt-gblue-6: #EDF0F2;
+
+$lt-green-0: #4AAA88;
+$lt-green-1: #43C4A6;
+
+$pink-1: #EF3F65;
+
+
+// MIXINS
+
+@mixin transition($value) {
+  -moz-transition: $value;
+  -o-transition: $value;
+  -ms-transition: $value;
+  -webkit-transition: $value;
+  transition: $value;
+}
+
+@mixin transition-delay($delay) {
+  -moz-transition-delay: $delay;
+  -o-transition-delay: $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay: $delay;
+}
+
+@mixin opacity($value){
+  $IEValue: $value*100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}
+
+@mixin box-sizing($value:border-box) {
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+
+@mixin box-shadow($top, $left, $blur, $color) {
+  -webkit-box-shadow: $top $left $blur $color;
+  -moz-box-shadow: $top $left $blur $color;
+  box-shadow: $top $left $blur $color;
+}
+
+@mixin border-radius ($radius:50%){
+  -webkit-border-radius: $radius $radius $radius $radius;
+  -moz-border-radius: $radius $radius $radius $radius;
+  border-radius: $radius $radius $radius $radius;
+}
+
+@mixin transform ($transforms){
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  -o-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin user-select ($select:none){
+  -webkit-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select;
+  -o-user-select: $select;
+  user-select: $select;
+}
+
+// FONTS
+
+$oregon   : "oregon";
+
+@font-face{
+	font-family: "oregon";
+  font-weight: normal;
+  font-style: normal;
+	src: url('/assets/fonts/oregon-webfont.eot');
+	src: url('/assets/fonts/oregon-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('/assets/fonts/oregon-webfont.woff2') format('woff2'),
+	     url('/assets/fonts/oregon-webfont.woff') format('woff'),
+	     url('/assets/fonts/oregon-webfont.ttf') format('truetype'),
+	     url('/assets/fonts/oregon-webfont.svg#webfont') format('svg');
+}

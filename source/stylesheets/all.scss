@@ -1,0 +1,61 @@
+@import 'variables-mixins', 'normalize', 'heading-hash', 'syntaxhighlighter';
+
+body                    { background: $grey-4; height: 100%; position: relative; font-family: "proxima-nova", sans-serif; -webkit-font-smoothing: antialiased; }
+a                       { @include transition(all .15s); }
+.left                   { float: left; }
+.right                  { float: right; }
+
+.page-wrapper           { width: 100%; max-width: 1055px; margin: 0 auto; }
+
+#header                 { position: relative; display: block; padding: 20px; margin-bottom: 1.5em; width: 100%; @include box-sizing;
+  a                     { color: $gblue-4; text-decoration: none; text-transform: uppercase; font-size: 1.3em;  @include user-select;
+    &#logo              { margin-top: -.05em;
+      span#nb-title     { display: inline-block; margin: .65em 0 0 0.5em; vertical-align: top; font-weight: bold; letter-spacing: .1em;
+      }
+    }
+    &#docs-tag          { display: inline-block; font-size: .8em; color: #94ACBA; font-weight: 700; letter-spacing: .05em; margin: 1.4em 0 0 1em; }
+  }
+  &.small               { padding: 8px 20px;
+    a                   { font-size: 1em; }
+  }
+  ul.links              { position: absolute; right: 3em; top: 2em; margin: 0; padding: 0; list-style: none;
+    li                  { display: inline-block;
+      a                 { font-size: .8em; color: $gblue-7; text-transform: uppercase; letter-spacing: .05em; font-weight: bold;
+        &:hover         { color: $sblue-0; }
+      }
+    }
+  }
+  svg                   {
+    &#nb-logo           { width: 45px; }
+  }
+}
+
+.content-flex           { display: flex; width: 100%; padding: 0 2em; flex-direction: row; box-sizing: border-box; }
+#content                { width: 70%; @include opacity(0); @include transition (opacity .2s);
+  &.loaded              { @include opacity(1); }
+}
+
+#contents-btn           { display: block; position: relative; padding: 1em; font-size: 1.1em; color: $gblue-6; background: $lt-gblue-6; cursor: pointer;
+  &:after               { content: "+"; position: absolute; right: .6em; top: .5em; font-size: 1.5em; }
+  &.open:after          { content: "–"; }
+}
+
+@import 'left-nav';
+@import 'doc-content';
+@import 'pagination';
+@import 'guides-block';
+
+
+#footer                 { width: 100%; display: block; margin: 3em 0; font-size: .85em; color: $grey-1; text-align: center; @include box-sizing;
+  a                     { color: $grey-1; border: none; text-decoration: none; font-weight: 700;
+    &:hover             { color: $blue-1; }
+  }
+  p                     { font-size: .9em; }
+  #links                { list-style: none; margin: 0; padding: 0;
+    li                  { display: inline-block; margin-bottom: .25em; padding: 0 1em; border-left: 1px solid $grey-2; font-size: .85em; text-transform: uppercase; letter-spacing: 1px;
+      &:first-child     { border: none; }
+    }
+  }
+}
+
+@import 'error-codes', 'providers', 'svg-styles', 'media-queries';

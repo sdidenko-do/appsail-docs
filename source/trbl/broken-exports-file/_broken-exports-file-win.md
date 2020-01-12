@@ -1,0 +1,1 @@
+In Windows, Nanobox uses the Common Internet File System (CIFS) to mount your codebase into your Nanobox container when `netfs` is specified as the `mount-type` in your [Nanobox configuration](/local-config/configure-nanobox/). CIFS doesn't use an exports file, so you shouldn't run across this problem.

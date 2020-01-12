@@ -1,0 +1,124 @@
+sections:
+  - title: 'The Essentials'
+    topics:
+      - title: 'Tools & Usage'
+        links:
+          - text: 'The boxfile.yml'
+            link: '/boxfile/'
+          - text: 'Workflow'
+            link: '/workflow/'
+          - text: 'Nanobox CLI'
+            link: '/cli/'
+
+      - title: 'Engines & Images'
+        links:
+          - text: 'Engines'
+            link: '/engines/'
+          - text: 'Images'
+            link: '/images/'
+
+  - title: 'Live App Management'
+    topics:
+      - title: 'Go Live'
+        links:
+          - text: 'Launching an App'
+            link: '/workflow/launch-app/'
+          - text: 'Deploy Code'
+            link: '/workflow/deploy-code/'
+
+      - title: 'Nanobox Dashboard'
+        links:
+          - text: 'Server & Components Admin'
+            link: '/live-app-management/server-component-admin/'
+          - text: 'Component Stats'
+            link: '/live-app-management/component-stats/'
+          - text: 'App Logs'
+            link: '/live-app-management/app-logs/'
+          - text: 'Deploy History'
+            link: '/live-app-management/deploy-history/'
+
+      - title: 'Data Management'
+        links:
+          - text: 'Uploading File Storage'
+            link: '/data-management/managing-live-data/#uploading-files-to-a-storage-component'
+          - text: 'Connecting to a Data Component'
+            link: '/live-app-management/remote-access/'
+
+      - title: 'Domains & SSL'
+        links:
+          - text: 'Using Custom Domains'
+            link: '/domains-networking/custom-domains/'
+          - text: 'Adding SSL/TLS'
+            link: '/domains-networking/ssl-tls/adding/'
+          - text: 'Detecting User IPs & Protocols'
+            link: '/domains-networking/user-ip-and-protocols/'
+
+  - title: 'Languages & Frameworks'
+    caption: 'Language and framework-specific information is found in the <a href="https://guides.nanobox.io">Nanobox Guides</a>. Below are direct links to popular guides.'
+    topics:
+      - title: 'Ruby Guides'
+        more: 'https://guides.nanobox.io/ruby/'
+        links:
+          - text: 'Ruby (General)'
+            link: 'https://guides.nanobox.io/ruby/'
+          - text: 'Rails'
+            link: 'https://guides.nanobox.io/ruby/rails/'
+          - text: 'Sinatra'
+            link: 'https://guides.nanobox.io/ruby/sinatra/'
+
+      - title: 'PHP Guides'
+        more: 'https://guides.nanobox.io/php/'
+        links:
+          - text: 'PHP (General)'
+            link: 'https://guides.nanobox.io/php/'
+          - text: 'Laravel'
+            link: 'https://guides.nanobox.io/php/laravel/'
+          - text: 'CodeIgniter'
+            link: 'https://guides.nanobox.io/php/codeigniter/'
+          - text: 'WordPress'
+            link: 'https://guides.nanobox.io/php/wordpress/'
+
+      - title: 'Node.js & JS Guides'
+        more: 'https://guides.nanobox.io/nodejs/'
+        links:
+          - text: 'Node.js (General)'
+            link: 'https://guides.nanobox.io/nodejs/'
+          - text: 'Angular'
+            link: 'https://guides.nanobox.io/javascript/angular/'
+          - text: 'Express'
+            link: 'https://guides.nanobox.io/nodejs/express/'
+          - text: 'Ember'
+            link: 'https://guides.nanobox.io/javascript/ember/'
+
+      - title: 'Python Guides'
+        more: 'https://guides.nanobox.io/python/'
+        links:
+          - text: 'Python (General)'
+            link: 'https://guides.nanobox.io/python/'
+          - text: 'Django'
+            link: 'https://guides.nanobox.io/python/django/'
+          - text: 'Flask'
+            link: 'https://guides.nanobox.io/python/flask/'
+
+      - title: 'Elixir Guides'
+        links:
+          - text: 'Phoenix'
+            link: 'https://guides.nanobox.io/elixir/phoenix'
+
+  - title: 'Data Components'
+    caption: 'Information on installing and configuring data components is present in the <a href="https://guides.nanobox.io/components/">Nanobox Component Guides</a>. Below are direct links to popular data components.'
+    topics:
+      - title: 'Popular Data Components'
+        links:
+          - text: 'PostgreSQL'
+            link: 'http://guides.nanobox.io/postgresql/'
+          - text: 'MySQL'
+            link: 'http://guides.nanobox.io/mysql/'
+          - text: 'MongoDB'
+            link: 'http://guides.nanobox.io/mongodb/'
+          - text: 'Redis'
+            link: 'http://guides.nanobox.io/redis/'
+          - text: 'Memcached'
+            link: 'http://guides.nanobox.io/memcached/'
+          - text: 'Storage (UNFS)'
+            link: 'http://guides.nanobox.io/storage/'

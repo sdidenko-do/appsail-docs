@@ -1,0 +1,106 @@
+---
+title: Build & Deploy Hooks
+seo_title: Run Custom Commands & Scripts During Your App's Build & Deploy Process
+description: As Nanobox builds your runtime and deploys your code, you can 'hook' into the process and run custom commands and scripts.
+keywords: deploy hook, build hook, deploy script, build script, compile hook, compile script, extra steps, extra build steps, extra deploy steps
+---
+
+## The Build & Deploy Process
+Build and deploy hooks take place at very specific points in both the build and deploy processes.
+
+<!-- The diagram below shows the process and at which point each hook type runs. Details about each of the hooks are provided below.
+
+*Scroll down to trigger each step of the animation.*
+
+<%= partial "deploy-diagram", locals: {:hooks => 'true'} %> -->
+
+## Build Hooks
+Your app's [engine](/engines/) builds and prepares your app's runtime and code. It's possible to include "extra steps" in this process. These are configured in the `run.config` section of your boxfile.yml.
+
+### extra_steps
+`extra_steps` run after your app's runtime is built, but before the runtime is packaged for use.
+
+```yaml
+run.config:
+  extra_steps:
+    - 'yarn install'
+    - 'bower install'
+```
+
+#### Important Things to Know About Extra Steps
+- [Environment variables](/app-config/environment-variables/) are **not** available during the build process.
+- `extra_steps` do not have access to data services.
+- Code is fully writable.
+
+
+## Deploy Hooks
+Deploy hooks run as apps are being deployed either to a dry-run or live app.
+
+### extra_steps
+`extra_steps` run locally as your app is prepared and compiled for deploy. Everything is writable, but you do not have access to environment variables or data services. File changes are only made inside the deployable package and will not change your local codebase.
+
+```yaml
+deploy.config:
+  extra_steps:
+    - mv config-prod.yml config.yml
+```
+
+### transform
+`transform` hooks run after your code has been deployed to your live app, but before everything is locked down with read-only permissions and distributed into new containers/servers. Your codebase is fully writable and you have access to environment variables associated with your live app. However, you _*cannot*_ access live data components.
+
+`transform` hooks should primarily be used to modify config files or other environment-specific filesystem changes that use environment variables.
+
+```yaml
+deploy.config:
+  transform:
+    - 'sed -i /HOST/$DATA_DB_HOST/g config/database.xml'
+    - 'if [ "$ENV" = "prod" ]; then mv config-prod.yml config.yml; fi'
+```
+
+### before_live
+`before_live` hooks run on a new container/server before it starts accepting live requests. These are unique to each component, so Nanobox needs to know on which each will run. In multi-node components, these only run on a single node.
+
+```yaml
+deploy.config:
+  before_live:
+    web.site:
+      - 'bundle exec rake clear-cache'
+      - 'echo I\'am ready to go'
+    worker.jobs:
+      - 'bundle exec check-queue'
+```
+
+### before\_live\_all
+`before_live_all` hooks are the same as `before_live` hooks, but they run on all new nodes in a multi-node component. These are useful when you need to modify the contents of [writable directories](/app-config/writable-dirs/).
+
+```yaml
+deploy.config:
+  before_live_all:
+    web.site:
+      - 'bundle exec prime-local-cache'
+      - 'bundle exec register-host'
+```
+
+### after_live
+`after_live` hooks run on a new container/server after it starts accepting live requests. These are unique to each component, so Nanobox needs to know on which each will run. In multi-node components, these only run on a single node.
+
+```yaml
+deploy.config:
+  after_live:
+    web.site:
+      - 'bundle exec rake prime-cache'
+      - 'echo "I am working"'
+    worker.jobs:
+      - 'bundle exec start-queue'
+```
+
+### after\_live\_all
+`after_live_all` hooks are the same as `after_live` hooks, but they run on all new nodes in a multi-node component. These are useful when you need to modify the contents of [writable directories](/app-config/writable-dirs/).
+
+```yaml
+deploy.config:
+  after_live_all:
+    web.site:
+      - 'bundle exec prime-local-cache'
+      - 'bundle exec register-host'
+```

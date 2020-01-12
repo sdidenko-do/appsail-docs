@@ -1,0 +1,57 @@
+providers:
+  - name: "Amazon Web Services (AWS)"
+    link: "/providers/hosting-accounts/aws/"
+    svg_name: prov-aws
+    available: true
+  - name: "DigitalOcean"
+    link: "/providers/hosting-accounts/digitalocean/"
+    svg_name: prov-digital-ocean
+    available: true
+  - name: "Google Compute"
+    link: "/providers/hosting-accounts/gcp/"
+    svg_name: prov-google
+    available: true
+  - name: "Linode"
+    link: "/providers/hosting-accounts/linode/"
+    svg_name: "prov-linode"
+    available: true
+  - name: "Vultr"
+    link: "/providers/hosting-accounts/vultr/"
+    svg_name: "prov-vultr"
+    available: true
+  - name: "Microsoft Azure"
+    link: "/providers/hosting-accounts/azure/"
+    svg_name: "prov-azure"
+    available: true
+  - name: "Packet"
+    link: "/providers/hosting-accounts/packet/"
+    svg_name: "prov-packet"
+    available: true
+  - name: "Scaleway"
+    link: "/providers/hosting-accounts/scaleway/"
+    svg_name: "prov-scaleway"
+    available: true
+  - name: "OVH"
+    link: "/providers/hosting-accounts/ovh/"
+    svg_name: "prov-ovh"
+    available: true
+  - name: "Exoscale"
+    link: "https://www.exoscale.ch/"
+    svg_name: "prov-exoscale"
+    available: false
+  - name: "Cloudways"
+    link: "https://www.cloudways.com/"
+    svg_name: "prov-cloudways"
+    available: false
+  - name: "IBM Bluemix"
+    link: "https://www.ibm.com/cloud-computing/bluemix/"
+    svg_name: "prov-bluemix"
+    available: false
+  - name: "Joyent"
+    link: "https://www.joyent.com/"
+    svg_name: "prov-joyent"
+    available: false
+  - name: "UpCloud"
+    link: "https://www.upcloud.com/"
+    svg_name: "prov-upcloud"
+    available: false

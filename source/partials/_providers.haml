@@ -1,0 +1,6 @@
+#providers
+  - data.providers.providers.each do |provider|
+    %a{ :href => provider.link, :target => (provider.link.include?("http") ? "_blank" : "_self"), :class => ("coming" unless provider.available) }
+      .icon
+        = partial "svgs/"+provider.svg_name
+      .name= provider.name
